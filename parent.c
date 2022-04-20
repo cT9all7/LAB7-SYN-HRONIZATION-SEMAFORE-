@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 {
 	bool flag;
 	key_t key;
-	key=ftok("/home/kali/progi/lab02/ftok",2);
+	key=ftok("/home/kali/progi/lab02/ftok",2);//путь к любому вашему файлу и любое число
 	int msqid;
 	msqid=msgget(key,(IPC_CREAT|0666));
 	int semid;
@@ -54,7 +54,7 @@ int main(int argc, char* argv[])
 				mpid[i]=pid; 
 				i++;
 			}
-			if(!pid) ret=execve("/home/kali/progi/lab02/child",NULL,NULL);
+			if(!pid) ret=execve("/home/kali/progi/lab02/child",NULL,NULL);//в кавычках путь к вашему дочернему процессу
 			printf("\nproducer %d\n",i);
 		}
 		else if(a=='P')//+consumer
@@ -64,7 +64,7 @@ int main(int argc, char* argv[])
 				mpid1[i1]=pid1;
 				i1++;
 			}
-			if(!pid1) ret1=execve("/home/kali/progi/lab02/child1",NULL,NULL);
+			if(!pid1) ret1=execve("/home/kali/progi/lab02/child1",NULL,NULL);//в кавычках путь к вашему дочернему процессу
 			printf("\nconsumer %d\n",i1);
 		}
 		else if(a=='d')
